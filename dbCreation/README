@@ -1,0 +1,2 @@
+docker build -t pheromonik/arondb:latest .
+docker run pheromonik/arondb:latest => Should run without errors (does not exist, exist by killing container)
