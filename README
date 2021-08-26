@@ -1,0 +1,4 @@
+Entwicklungsumgebung starten: docker-compose up -d
+Docker-Container anschauen: docker ps
+In Container gehen: docker exec -it <CONTAINER-NAME> bash
+php composer.phar update
