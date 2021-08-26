@@ -1,4 +1,4 @@
 Entwicklungsumgebung starten: docker-compose up -d
 Docker-Container anschauen: docker ps
-In Container gehen: docker exec -it <CONTAINER-NAME> bash
+In Container gehen: docker exec -it arondevenv_php_1 bash
 php composer.phar update
