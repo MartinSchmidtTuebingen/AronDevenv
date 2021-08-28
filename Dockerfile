@@ -1,5 +1,5 @@
 FROM php:7.4-apache
-RUN docker-php-ext-install mysqli
+RUN docker-php-ext-install pdo pdo_mysql
 RUN apt-get -y update
 RUN apt-get -y install git
 RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
