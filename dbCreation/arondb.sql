@@ -11,19 +11,19 @@ SET time_zone = "+00:00";
 
 DROP TABLE IF EXISTS `bank`;
 CREATE TABLE `bank` (
-  `ktnr` int(6) UNSIGNED ZEROFILL NOT NULL,
+  `IDX` int(6) UNSIGNED ZEROFILL NOT NULL,
   `char_id` int(255) NOT NULL,
   `cred_ra` int(255) NOT NULL,
   `betrag` int(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 TRUNCATE TABLE `bank`;
-INSERT INTO `bank` (`ktnr`, `char_id`, `cred_ra`, `betrag`) VALUES
+INSERT INTO `bank` (`IDX`, `char_id`, `cred_ra`, `betrag`) VALUES
 (111111, 7, 100000000, 50000);
 
 DROP TABLE IF EXISTS `char_daten`;
 CREATE TABLE `char_daten` (
-  `char_id` int(9) NOT NULL,
+  `IDX` int(9) NOT NULL,
   `user_id` int(9) NOT NULL,
   `char_name` varchar(256) NOT NULL,
   `char_aufenthalt` int(9) NOT NULL,
@@ -52,14 +52,14 @@ CREATE TABLE `char_daten` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 TRUNCATE TABLE `char_daten`;
-INSERT INTO `char_daten` (`char_id`, `user_id`, `char_name`, `char_aufenthalt`, `Fraktion`, `Physis`, `Intellekt`, `Wirkung`, `Telepathie`, `Phy1_BG`, `Phy2_Kon`, `Phy3_NK`, `Phy4_Pil`, `Phy5_SW`, `Int1_Astro`, `Int2_Comp`, `Int3_Med`, `Int4_Rep`, `Int5_Sens`, `Wirk1_Etik`, `Wirk2_Feilsch`, `Wirk3_Komm`, `Wirk4_Lueg`, `Wirk5_Ueberz`, `credits`, `ktnr`) VALUES
+INSERT INTO `char_daten` (`IDX`, `user_id`, `char_name`, `char_aufenthalt`, `Fraktion`, `Physis`, `Intellekt`, `Wirkung`, `Telepathie`, `Phy1_BG`, `Phy2_Kon`, `Phy3_NK`, `Phy4_Pil`, `Phy5_SW`, `Int1_Astro`, `Int2_Comp`, `Int3_Med`, `Int4_Rep`, `Int5_Sens`, `Wirk1_Etik`, `Wirk2_Feilsch`, `Wirk3_Komm`, `Wirk4_Lueg`, `Wirk5_Ueberz`, `credits`, `ktnr`) VALUES
 (7, 1, 'blub', 1, 0, 8, 8, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 500, NULL),
 (17, 17, 'Deteroius', 1, 0, 8, 8, 8, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 500, NULL),
 (18, 24, '', 1, 1, 8, 8, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 500, NULL);
 
 DROP TABLE IF EXISTS `DE_lang_dia`;
 CREATE TABLE `DE_lang_dia` (
-  `DIA_ID` int(255) NOT NULL,
+  `IDX` int(255) NOT NULL,
   `DIA_Q_ID` int(255) NOT NULL,
   `DIA_TXT` text CHARACTER SET utf8 COLLATE utf8_german2_ci NOT NULL,
   `DIA_ART` int(2) UNSIGNED ZEROFILL NOT NULL DEFAULT '10',
@@ -82,7 +82,7 @@ CREATE TABLE `DE_lang_dia` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 TRUNCATE TABLE `DE_lang_dia`;
-INSERT INTO `DE_lang_dia` (`DIA_ID`, `DIA_Q_ID`, `DIA_TXT`, `DIA_ART`, `DIA_OPT1`, `DIA_OPT1_TXT`, `DIA_OPT2`, `DIA_OPT2_TXT`, `DIA_OPT3`, `DIA_OPT3_TXT`, `DIA_OPT4`, `DIA_OPT4_TXT`, `DIA_OPT5`, `DIA_OPT5_TXT`, `DIA_OPT6`, `DIA_OPT6_TXT`, `DIA_OPT7`, `DIA_OPT7_TXT`, `DIA_OPT8`, `DIA_OPT8_TXT`) VALUES
+INSERT INTO `DE_lang_dia` (`IDX`, `DIA_Q_ID`, `DIA_TXT`, `DIA_ART`, `DIA_OPT1`, `DIA_OPT1_TXT`, `DIA_OPT2`, `DIA_OPT2_TXT`, `DIA_OPT3`, `DIA_OPT3_TXT`, `DIA_OPT4`, `DIA_OPT4_TXT`, `DIA_OPT5`, `DIA_OPT5_TXT`, `DIA_OPT6`, `DIA_OPT6_TXT`, `DIA_OPT7`, `DIA_OPT7_TXT`, `DIA_OPT8`, `DIA_OPT8_TXT`) VALUES
 (1, 1, 'In der Kneipe des Raumhafens ist die Luft gut gefiltert, Rauchen ist verboten und so kommt die klischeem??ig versoffene Stimmung nicht wirklich auf. Dennoch scheinen sich hier einige zu am?sieren. An einem Tisch\r\nwinkt ein grobschl?chtiger Mann die Kellnerin herbei und bestellt ein Bier. Er scheint mit seinem Geld angeben zu wollen und holt ein ganzes B?ndel Credits aus der Tasche. Dabei f?llt ein zerkn?lltest St?ck Papier heraus und landet geradewegs vor deinen F??en.', 00, 2, 'Aufheben und ansehen', 3, 'Ignorieren', 4, 'Drauftreten und s', 0, '', 0, '', 0, '0', 0, '', 0, ''),
 (2, 1, 'Als du das Stück Papier aufhebst, erkennst du den Ausdruck eines Bountyauftrages. Beim näheren Hinsehen erkennst du, dass der Verlierer des Papieres der Gesuchte zu sein scheint.', 10, 5, 'Ignorieren', 6, 'Ihn festnehmen und das Bounty kassieren ', 7, 'Ihn darauf ansprechen und sehen, was er dir anbieten kann.', 0, '', 0, '', 0, '', 0, '', 0, ''),
 (3, 1, 'Du kannst einen Platz an einem Tisch ergattern.\r\n', 10, 8, ' Kellnerin, bitte ein Getränk!', 9, 'Beobachten, was die Leute um dich herum so tun...', 0, '', 0, '', 0, '', 0, '', 0, '', 0, ''),
@@ -104,14 +104,14 @@ INSERT INTO `DE_lang_dia` (`DIA_ID`, `DIA_Q_ID`, `DIA_TXT`, `DIA_ART`, `DIA_OPT1
 
 DROP TABLE IF EXISTS `fraktionen`;
 CREATE TABLE `fraktionen` (
-  `frak_id` int(1) NOT NULL,
+  `IDX` int(1) NOT NULL,
   `frak_name` text NOT NULL,
   `frak_bechreibung` text NOT NULL,
   `frak-kurz` int(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 TRUNCATE TABLE `fraktionen`;
-INSERT INTO `fraktionen` (`frak_id`, `frak_name`, `frak_bechreibung`, `frak-kurz`) VALUES
+INSERT INTO `fraktionen` (`IDX`, `frak_name`, `frak_bechreibung`, `frak-kurz`) VALUES
 (1, 'Solare Republik', '', 0),
 (2, 'Prussianer', '', 0),
 (3, 'H.o.r.n.e.t.s.', '', 0),
@@ -121,7 +121,7 @@ INSERT INTO `fraktionen` (`frak_id`, `frak_name`, `frak_bechreibung`, `frak-kurz
 
 DROP TABLE IF EXISTS `loot`;
 CREATE TABLE `loot` (
-  `loot_id` int(255) NOT NULL,
+  `IDX` int(255) NOT NULL,
   `loot_1` int(255) NOT NULL,
   `loot_2` int(255) NOT NULL,
   `loot_3` int(255) NOT NULL
@@ -130,7 +130,7 @@ CREATE TABLE `loot` (
 TRUNCATE TABLE `loot`;
 DROP TABLE IF EXISTS `message`;
 CREATE TABLE `message` (
-  `pn_id` int(255) NOT NULL,
+  `IDX` int(255) NOT NULL,
   `titel` text NOT NULL,
   `abs_id` int(9) NOT NULL,
   `empf_id` int(9) NOT NULL,
@@ -142,7 +142,7 @@ CREATE TABLE `message` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 TRUNCATE TABLE `message`;
-INSERT INTO `message` (`pn_id`, `titel`, `abs_id`, `empf_id`, `inhalt`, `zeit`, `status`, `eing`, `ausg`) VALUES
+INSERT INTO `message` (`IDX`, `titel`, `abs_id`, `empf_id`, `inhalt`, `zeit`, `status`, `eing`, `ausg`) VALUES
 (1, 'Ein erster Text', 1, -1, 'Ich versuche mich mal an einem kleinen Nachrichtensystem...', '2019-07-07 11:39:24', 1, 1, 1),
 (3, 'Testnachricht', 1, 12, 'Hi Aiy, \r\n\r\nschau mal, wir kÃ¶nnen uns jetzt hier schreiben. \r\n\r\nLG', '2019-06-07 13:33:40', 0, 1, 1),
 (4, 'Re:Ein erster Text', 1, 1, 'kann ich auch [b]fett[/b] schreiben? ', '2019-07-07 11:51:14', 1, 1, 1),
@@ -156,18 +156,18 @@ INSERT INTO `message` (`pn_id`, `titel`, `abs_id`, `empf_id`, `inhalt`, `zeit`, 
 
 DROP TABLE IF EXISTS `Missionen`;
 CREATE TABLE `Missionen` (
-  `mission_id` int(11) NOT NULL,
+  `IDX` int(11) NOT NULL,
   `mission_name` varchar(255) DEFAULT NULL,
   `mission` text
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 TRUNCATE TABLE `Missionen`;
-INSERT INTO `Missionen` (`mission_id`, `mission_name`, `mission`) VALUES
+INSERT INTO `Missionen` (`IDX`, `mission_name`, `mission`) VALUES
 (0, 'Test', 'Eine durchtrieben aussehende junge Hornisse mit pinkem Haar und einem Piercing in der Unterlippe gibt dir vom Nachbartisch einen Wink. \"Hey, Captain. Ich hätte Ihnen einen kleinen Vorschlag zu machen.\"}\r\nPERSON [%charname%] {OPTION_1: \"Ich bin ganz Ohr.\" OPTION_2: \"Nicht interessiert, Kleine.\"}\r\nBRANCH_1 {\r\nPERSON Tyra { \"Aber nicht hier. Ich warte hinten.\" Damit erhebt sie sich und verschwindet unauffällig durch die Hintertür.}\r\n}\r\nBRANCH_2 {\r\nSie zieht eine Schnute und wendet sich wieder ihrem Cocktail zu.\r\n}');
 
 DROP TABLE IF EXISTS `planets`;
 CREATE TABLE `planets` (
-  `pla_id` int(9) NOT NULL,
+  `IDX` int(9) NOT NULL,
   `pla_koord1` int(3) NOT NULL,
   `pla_koord2` int(3) NOT NULL,
   `pla_koord3` int(3) NOT NULL,
@@ -179,7 +179,7 @@ CREATE TABLE `planets` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 TRUNCATE TABLE `planets`;
-INSERT INTO `planets` (`pla_id`, `pla_koord1`, `pla_koord2`, `pla_koord3`, `pla_name`, `pla_fraction`, `pla_short`, `pla_text`, `pla_typ`) VALUES
+INSERT INTO `planets` (`IDX`, `pla_koord1`, `pla_koord2`, `pla_koord3`, `pla_name`, `pla_fraction`, `pla_short`, `pla_text`, `pla_typ`) VALUES
 (1, 178, 182, 180, 'Gersellis', 1, 'Galaktischer Schmelztiegel diverser Spezies, größter Handelshafen der Galaxis, diplomatisches Zentrum mit Sitz aller Fraktionen.', 'Aufgrund seiner Lage und seiner relativ angenehmen Lebensbedingungen - die axiale Neigung ist gering, die Gravitation leicht unterdurchschnittlich und die Luft für die meisten Humanoiden gut atembar - wurde Gersellis als Sitz der VFV - der Vereinigung friedliebender Völker - ausgewählt. Auf Initiative der mysteriösen Psitros gegründet, bündelt die VfV die Interessen der großen Fraktionen und blockfreien Welten und versucht einen politischen Ausgleich zu schaffen. Dieses hehre Ansinnen ist natürlich in der Praxis oft nicht nur nicht erreichbar, sondern wird oft genug ins Gegenteil verkehrt. Aufgrund der zentralen Lage und der Unabhängigkeit von Gersellis - und den zahlungskräftigen Diplomaten - gehört Gersellis auch zu den großen Handlungszentren des Spiralarms. Man sagt, auf Gersellis kann man alles kaufen - und vielleicht stimmt das sogar - aber sicher ist eines: produziert wurde es dann vermutlich woanders.\r\n\r\n', 1),
 (2, 94, 20, 154, 'Theta-Caldonis', 1, '', 'Der Hauptsitz der Regierung der Solaren Republik und nicht zuletzt dank vier bewohnbarer Welten eine der bevölkerungsreichsten Systeme überhaupt ist das Thetys-System. Der Hauptplanet, Theta-Caldonis, war einst Zankapfel der Völker, die heute in relativer Eintracht in der Solaren Republik koexistieren. Der Planet ist bekannt dafür, dass es fast alles zu kaufen gibt, aber nur die wirklich reichen es sich leisten können. Zudem gilt die Hauptwelt als reichlich bürokratisch.', 1),
 (3, 54, 104, 82, 'Erde', 1, '', 'Die Erde ist die Heimatwelt der Menschen und mit beinahe 10 Milliarden Fühlenden dicht bevölkert und industriell hoch entwickelt. Dass die Menschen das System in dem ihre Heimatwelt liegt \"Sol-System\" - also Sonnensystem - nennen, ist Gegenstand vieler Scherze anderer Spezies. Davon abgesehen ist die Erde die zweitwichtigste Welt der Solaren Republik und ein guter Absatzmarkt für Luxusartikel und Verbrauchsgüter. Im System ist zudem das Hornet-Nest der Longicornis zu finden.', 1),
@@ -194,7 +194,7 @@ INSERT INTO `planets` (`pla_id`, `pla_koord1`, `pla_koord2`, `pla_koord3`, `pla_
 
 DROP TABLE IF EXISTS `Quest`;
 CREATE TABLE `Quest` (
-  `Q_ID` int(255) NOT NULL,
+  `IDX` int(255) NOT NULL,
   `Q_TITLE` int(255) NOT NULL,
   `Q_LOOT` int(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -202,7 +202,7 @@ CREATE TABLE `Quest` (
 TRUNCATE TABLE `Quest`;
 DROP TABLE IF EXISTS `ships`;
 CREATE TABLE `ships` (
-  `shipNumber` int(11) NOT NULL,
+  `IDX` int(11) NOT NULL,
   `shipType` varchar(20) NOT NULL,
   `baseEnergy` int(11) NOT NULL,
   `baseHull` int(11) NOT NULL,
@@ -217,22 +217,12 @@ CREATE TABLE `ships` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 TRUNCATE TABLE `ships`;
-INSERT INTO `ships` (`shipNumber`, `shipType`, `baseEnergy`, `baseHull`, `baseSubSpeed`, `baseHyperSpeed`, `origSubSpeedType`, `origHyperSpeedType`, `origHullType`, `origShieldType`, `origWeaponsType`, `origModulesType`) VALUES
+INSERT INTO `ships` (`IDX`, `shipType`, `baseEnergy`, `baseHull`, `baseSubSpeed`, `baseHyperSpeed`, `origSubSpeedType`, `origHyperSpeedType`, `origHullType`, `origShieldType`, `origWeaponsType`, `origModulesType`) VALUES
 (1, 'Shuttle', 30, 100, 1, 5, 1, 1, 2, 1, 'null', 'null');
 
-DROP TABLE IF EXISTS `test`;
-CREATE TABLE `test` (
-  `test_1` int(11) NOT NULL,
-  `test_2` int(4) DEFAULT NULL,
-  `test_3` varchar(255) DEFAULT NULL,
-  `test_4` json DEFAULT NULL,
-  `test_5` text
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
-TRUNCATE TABLE `test`;
 DROP TABLE IF EXISTS `user_daten`;
 CREATE TABLE `user_daten` (
-  `usr_index` int(9) NOT NULL COMMENT 'Index',
+  `IDX` int(9) NOT NULL COMMENT 'Index',
   `usr_name` varchar(256) CHARACTER SET utf8 COLLATE utf8_german2_ci NOT NULL,
   `usr_mail` varchar(256) CHARACTER SET ascii NOT NULL COMMENT 'Mailadresse',
   `usr_pw` varchar(256) CHARACTER SET ascii NOT NULL COMMENT 'Passwort',
@@ -246,7 +236,7 @@ CREATE TABLE `user_daten` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 TRUNCATE TABLE `user_daten`;
-INSERT INTO `user_daten` (`usr_index`, `usr_name`, `usr_mail`, `usr_pw`, `usr_first_login`, `usr_charIX1`, `usr_aktiv`, `usr_salt`, `usr_save`, `message_ids`, `usr_role`) VALUES
+INSERT INTO `user_daten` (`IDX`, `usr_name`, `usr_mail`, `usr_pw`, `usr_first_login`, `usr_charIX1`, `usr_aktiv`, `usr_salt`, `usr_save`, `message_ids`, `usr_role`) VALUES
 (1, 'Indunei', 'mcgeaven@gmx.de', '51459b1eabd5fa4fe9809593d572c962', 0, 0, 1, 7, 1, 'null', 5),
 (8, 'Phorus', 'nebrol@hotmail.com', 'ce206cf24ce3eed31a6f4b80f98f2ab5', 0, 0, 1, 2297781, 0, 'null', 5),
 (12, 'Aiy', 'eiskoong@gmail.com', 'e64986f8338ac5fea30d792ee93923de', 0, 0, 1, 2171760, 0, 'null', 2),
@@ -259,92 +249,58 @@ INSERT INTO `user_daten` (`usr_index`, `usr_name`, `usr_mail`, `usr_pw`, `usr_fi
 (24, 'Lumpi', 'lumpi@aron-games.de', 'efcb02861d7a68bee8e4a846664b965e', 0, 0, 0, 3531306, 0, 'null', 0),
 (25, 'rigstreft', 'ariela954@mix-mail.online\r\n', '1fd8b4ad8d48edadb4342dc83a2690fc', 0, 0, 0, 3290940, 0, 'null', 0);
 
-DROP TABLE IF EXISTS `user_daten_old`;
-CREATE TABLE `user_daten_old` (
-  `usr_index` int(9) NOT NULL COMMENT 'Index',
-  `usr_name` varchar(256) CHARACTER SET utf8 COLLATE utf8_german2_ci NOT NULL,
-  `usr_mail` varchar(256) CHARACTER SET ascii NOT NULL COMMENT 'Mailadresse',
-  `usr_pw` varchar(256) CHARACTER SET ascii NOT NULL COMMENT 'Passwort',
-  `usr_first_login` int(1) NOT NULL DEFAULT '0' COMMENT 'Erster Login',
-  `usr_charIX1` int(1) NOT NULL,
-  `usr_aktiv` int(1) NOT NULL DEFAULT '1',
-  `usr_salt` int(7) NOT NULL,
-  `usr_save` int(1) NOT NULL DEFAULT '0'
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
-TRUNCATE TABLE `user_daten_old`;
-INSERT INTO `user_daten_old` (`usr_index`, `usr_name`, `usr_mail`, `usr_pw`, `usr_first_login`, `usr_charIX1`, `usr_aktiv`, `usr_salt`, `usr_save`) VALUES
-(1, 'Indunei', 'mcgeaven@gmx.de', '51459b1eabd5fa4fe9809593d572c962', 0, 0, 0, 7, 1),
-(8, '', 'nebrol@hotmail.com', 'ce206cf24ce3eed31a6f4b80f98f2ab5', 0, 0, 0, 2297781, 0),
-(12, 'Aiy', 'eiskoong@gmail.com', 'e64986f8338ac5fea30d792ee93923de', 0, 0, 1, 2171760, 0),
-(13, 'Ilka Test', 'abendstern@quantentunnel.org', '7ed92393076cf6d5f2e7c8411368d381', 0, 0, 0, 1707558, 0),
-(14, 'XenTex', '4e7dfdg@yandex.com', '0f7e0c7855e11cfe7f056878f14c726e', 0, 0, 1, 3547227, 0),
-(15, 'Phorus', 'testmail8402@web.de', 'e6c65584a413d50571864d0229185d8f', 0, 0, 1, 675147, 0),
-(17, 'Mollask', 'mollask@posteo.de', 'ecb4160e83e3a207b81b8cdf9f0c3ed0', 0, 0, 0, 3798000, 0);
-
-
 ALTER TABLE `bank`
-  ADD PRIMARY KEY (`ktnr`),
-  ADD UNIQUE KEY `ktnr` (`ktnr`);
+  ADD PRIMARY KEY (`IDX`),
+  ADD UNIQUE KEY `bankIdx` (`IDX`);
 
 ALTER TABLE `char_daten`
-  ADD PRIMARY KEY (`char_id`);
+  ADD PRIMARY KEY (`IDX`);
 
 ALTER TABLE `DE_lang_dia`
-  ADD UNIQUE KEY `DIA-ID` (`DIA_ID`);
+  ADD UNIQUE KEY `DiaIdx` (`IDX`);
 
 ALTER TABLE `fraktionen`
-  ADD PRIMARY KEY (`frak_id`);
+  ADD PRIMARY KEY (`IDX`);
 
 ALTER TABLE `message`
-  ADD PRIMARY KEY (`pn_id`);
+  ADD PRIMARY KEY (`IDX`);
 
 ALTER TABLE `Missionen`
-  ADD PRIMARY KEY (`mission_id`);
+  ADD PRIMARY KEY (`IDX`);
 
 ALTER TABLE `planets`
-  ADD PRIMARY KEY (`pla_id`);
+  ADD PRIMARY KEY (`IDX`);
 
 ALTER TABLE `Quest`
-  ADD UNIQUE KEY `Q_ID` (`Q_ID`);
+  ADD UNIQUE KEY `questIdx` (`IDX`);
 
 ALTER TABLE `ships`
-  ADD PRIMARY KEY (`shipNumber`);
-
-ALTER TABLE `test`
-  ADD PRIMARY KEY (`test_1`);
+  ADD PRIMARY KEY (`IDX`);
 
 ALTER TABLE `user_daten`
-  ADD UNIQUE KEY `UsrIndex` (`usr_index`);
-
-ALTER TABLE `user_daten_old`
-  ADD UNIQUE KEY `UsrIndex` (`usr_index`);
+  ADD UNIQUE KEY `UsrIndex` (`IDX`);
 
 
 ALTER TABLE `bank`
-  MODIFY `ktnr` int(6) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=111112;
+  MODIFY `IDX` int(6) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=111112;
 
 ALTER TABLE `char_daten`
-  MODIFY `char_id` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `IDX` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 ALTER TABLE `DE_lang_dia`
-  MODIFY `DIA_ID` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `IDX` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 ALTER TABLE `message`
-  MODIFY `pn_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `IDX` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 ALTER TABLE `planets`
-  MODIFY `pla_id` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `IDX` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 ALTER TABLE `Quest`
-  MODIFY `Q_ID` int(255) NOT NULL AUTO_INCREMENT;
+  MODIFY `IDX` int(255) NOT NULL AUTO_INCREMENT;
 
 ALTER TABLE `user_daten`
-  MODIFY `usr_index` int(9) NOT NULL AUTO_INCREMENT COMMENT 'Index', AUTO_INCREMENT=26;
-
-ALTER TABLE `user_daten_old`
-  MODIFY `usr_index` int(9) NOT NULL AUTO_INCREMENT COMMENT 'Index', AUTO_INCREMENT=18;
-COMMIT;
+  MODIFY `IDX` int(9) NOT NULL AUTO_INCREMENT COMMENT 'Index', AUTO_INCREMENT=26;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
