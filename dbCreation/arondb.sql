@@ -220,16 +220,6 @@ TRUNCATE TABLE `ships`;
 INSERT INTO `ships` (`shipNumber`, `shipType`, `baseEnergy`, `baseHull`, `baseSubSpeed`, `baseHyperSpeed`, `origSubSpeedType`, `origHyperSpeedType`, `origHullType`, `origShieldType`, `origWeaponsType`, `origModulesType`) VALUES
 (1, 'Shuttle', 30, 100, 1, 5, 1, 1, 2, 1, 'null', 'null');
 
-DROP TABLE IF EXISTS `test`;
-CREATE TABLE `test` (
-  `test_1` int(11) NOT NULL,
-  `test_2` int(4) DEFAULT NULL,
-  `test_3` varchar(255) DEFAULT NULL,
-  `test_4` json DEFAULT NULL,
-  `test_5` text
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
-TRUNCATE TABLE `test`;
 DROP TABLE IF EXISTS `user_daten`;
 CREATE TABLE `user_daten` (
   `IDX` int(9) NOT NULL COMMENT 'Index',
@@ -286,9 +276,6 @@ ALTER TABLE `Quest`
 
 ALTER TABLE `ships`
   ADD PRIMARY KEY (`shipNumber`);
-
-ALTER TABLE `test`
-  ADD PRIMARY KEY (`test_1`);
 
 ALTER TABLE `user_daten`
   ADD UNIQUE KEY `UsrIndex` (`IDX`);
