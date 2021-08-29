@@ -11,14 +11,14 @@ SET time_zone = "+00:00";
 
 DROP TABLE IF EXISTS `bank`;
 CREATE TABLE `bank` (
-  `ktnr` int(6) UNSIGNED ZEROFILL NOT NULL,
+  `IDX` int(6) UNSIGNED ZEROFILL NOT NULL,
   `char_id` int(255) NOT NULL,
   `cred_ra` int(255) NOT NULL,
   `betrag` int(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 TRUNCATE TABLE `bank`;
-INSERT INTO `bank` (`ktnr`, `char_id`, `cred_ra`, `betrag`) VALUES
+INSERT INTO `bank` (`IDX`, `char_id`, `cred_ra`, `betrag`) VALUES
 (111111, 7, 100000000, 50000);
 
 DROP TABLE IF EXISTS `char_daten`;
@@ -250,8 +250,8 @@ INSERT INTO `user_daten` (`IDX`, `usr_name`, `usr_mail`, `usr_pw`, `usr_first_lo
 (25, 'rigstreft', 'ariela954@mix-mail.online\r\n', '1fd8b4ad8d48edadb4342dc83a2690fc', 0, 0, 0, 3290940, 0, 'null', 0);
 
 ALTER TABLE `bank`
-  ADD PRIMARY KEY (`ktnr`),
-  ADD UNIQUE KEY `ktnr` (`ktnr`);
+  ADD PRIMARY KEY (`IDX`),
+  ADD UNIQUE KEY `IDX` (`IDX`);
 
 ALTER TABLE `char_daten`
   ADD PRIMARY KEY (`char_id`);
@@ -282,7 +282,7 @@ ALTER TABLE `user_daten`
 
 
 ALTER TABLE `bank`
-  MODIFY `ktnr` int(6) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=111112;
+  MODIFY `IDX` int(6) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=111112;
 
 ALTER TABLE `char_daten`
   MODIFY `char_id` int(9) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
