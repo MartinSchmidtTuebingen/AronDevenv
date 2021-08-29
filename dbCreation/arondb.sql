@@ -232,7 +232,7 @@ CREATE TABLE `test` (
 TRUNCATE TABLE `test`;
 DROP TABLE IF EXISTS `user_daten`;
 CREATE TABLE `user_daten` (
-  `usr_index` int(9) NOT NULL COMMENT 'Index',
+  `IDX` int(9) NOT NULL COMMENT 'Index',
   `usr_name` varchar(256) CHARACTER SET utf8 COLLATE utf8_german2_ci NOT NULL,
   `usr_mail` varchar(256) CHARACTER SET ascii NOT NULL COMMENT 'Mailadresse',
   `usr_pw` varchar(256) CHARACTER SET ascii NOT NULL COMMENT 'Passwort',
@@ -246,7 +246,7 @@ CREATE TABLE `user_daten` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 TRUNCATE TABLE `user_daten`;
-INSERT INTO `user_daten` (`usr_index`, `usr_name`, `usr_mail`, `usr_pw`, `usr_first_login`, `usr_charIX1`, `usr_aktiv`, `usr_salt`, `usr_save`, `message_ids`, `usr_role`) VALUES
+INSERT INTO `user_daten` (`IDX`, `usr_name`, `usr_mail`, `usr_pw`, `usr_first_login`, `usr_charIX1`, `usr_aktiv`, `usr_salt`, `usr_save`, `message_ids`, `usr_role`) VALUES
 (1, 'Indunei', 'mcgeaven@gmx.de', '51459b1eabd5fa4fe9809593d572c962', 0, 0, 1, 7, 1, 'null', 5),
 (8, 'Phorus', 'nebrol@hotmail.com', 'ce206cf24ce3eed31a6f4b80f98f2ab5', 0, 0, 1, 2297781, 0, 'null', 5),
 (12, 'Aiy', 'eiskoong@gmail.com', 'e64986f8338ac5fea30d792ee93923de', 0, 0, 1, 2171760, 0, 'null', 2),
@@ -261,7 +261,7 @@ INSERT INTO `user_daten` (`usr_index`, `usr_name`, `usr_mail`, `usr_pw`, `usr_fi
 
 DROP TABLE IF EXISTS `user_daten_old`;
 CREATE TABLE `user_daten_old` (
-  `usr_index` int(9) NOT NULL COMMENT 'Index',
+  `IDX` int(9) NOT NULL COMMENT 'Index',
   `usr_name` varchar(256) CHARACTER SET utf8 COLLATE utf8_german2_ci NOT NULL,
   `usr_mail` varchar(256) CHARACTER SET ascii NOT NULL COMMENT 'Mailadresse',
   `usr_pw` varchar(256) CHARACTER SET ascii NOT NULL COMMENT 'Passwort',
@@ -273,7 +273,7 @@ CREATE TABLE `user_daten_old` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 TRUNCATE TABLE `user_daten_old`;
-INSERT INTO `user_daten_old` (`usr_index`, `usr_name`, `usr_mail`, `usr_pw`, `usr_first_login`, `usr_charIX1`, `usr_aktiv`, `usr_salt`, `usr_save`) VALUES
+INSERT INTO `user_daten_old` (`IDX`, `usr_name`, `usr_mail`, `usr_pw`, `usr_first_login`, `usr_charIX1`, `usr_aktiv`, `usr_salt`, `usr_save`) VALUES
 (1, 'Indunei', 'mcgeaven@gmx.de', '51459b1eabd5fa4fe9809593d572c962', 0, 0, 0, 7, 1),
 (8, '', 'nebrol@hotmail.com', 'ce206cf24ce3eed31a6f4b80f98f2ab5', 0, 0, 0, 2297781, 0),
 (12, 'Aiy', 'eiskoong@gmail.com', 'e64986f8338ac5fea30d792ee93923de', 0, 0, 1, 2171760, 0),
@@ -315,10 +315,10 @@ ALTER TABLE `test`
   ADD PRIMARY KEY (`test_1`);
 
 ALTER TABLE `user_daten`
-  ADD UNIQUE KEY `UsrIndex` (`usr_index`);
+  ADD UNIQUE KEY `UsrIndex` (`IDX`);
 
 ALTER TABLE `user_daten_old`
-  ADD UNIQUE KEY `UsrIndex` (`usr_index`);
+  ADD UNIQUE KEY `UsrIndex` (`IDX`);
 
 
 ALTER TABLE `bank`
@@ -340,10 +340,10 @@ ALTER TABLE `Quest`
   MODIFY `Q_ID` int(255) NOT NULL AUTO_INCREMENT;
 
 ALTER TABLE `user_daten`
-  MODIFY `usr_index` int(9) NOT NULL AUTO_INCREMENT COMMENT 'Index', AUTO_INCREMENT=26;
+  MODIFY `IDX` int(9) NOT NULL AUTO_INCREMENT COMMENT 'Index', AUTO_INCREMENT=26;
 
 ALTER TABLE `user_daten_old`
-  MODIFY `usr_index` int(9) NOT NULL AUTO_INCREMENT COMMENT 'Index', AUTO_INCREMENT=18;
+  MODIFY `IDX` int(9) NOT NULL AUTO_INCREMENT COMMENT 'Index', AUTO_INCREMENT=18;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
