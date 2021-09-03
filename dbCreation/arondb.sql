@@ -202,7 +202,7 @@ CREATE TABLE `Quest` (
 TRUNCATE TABLE `Quest`;
 DROP TABLE IF EXISTS `ships`;
 CREATE TABLE `ships` (
-  `shipNumber` int(11) NOT NULL,
+  `IDX` int(11) NOT NULL,
   `shipType` varchar(20) NOT NULL,
   `baseEnergy` int(11) NOT NULL,
   `baseHull` int(11) NOT NULL,
@@ -217,7 +217,7 @@ CREATE TABLE `ships` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 TRUNCATE TABLE `ships`;
-INSERT INTO `ships` (`shipNumber`, `shipType`, `baseEnergy`, `baseHull`, `baseSubSpeed`, `baseHyperSpeed`, `origSubSpeedType`, `origHyperSpeedType`, `origHullType`, `origShieldType`, `origWeaponsType`, `origModulesType`) VALUES
+INSERT INTO `ships` (`IDX`, `shipType`, `baseEnergy`, `baseHull`, `baseSubSpeed`, `baseHyperSpeed`, `origSubSpeedType`, `origHyperSpeedType`, `origHullType`, `origShieldType`, `origWeaponsType`, `origModulesType`) VALUES
 (1, 'Shuttle', 30, 100, 1, 5, 1, 1, 2, 1, 'null', 'null');
 
 DROP TABLE IF EXISTS `user_daten`;
@@ -275,7 +275,11 @@ ALTER TABLE `Quest`
   ADD UNIQUE KEY `questIdx` (`IDX`);
 
 ALTER TABLE `ships`
+<<<<<<< HEAD
   ADD PRIMARY KEY (`shipNumber`);
+=======
+  ADD PRIMARY KEY (`IDX`);
+>>>>>>> 747a3f2eee75a6b05f4492adf027eef24aa27a9a
 
 ALTER TABLE `user_daten`
   ADD UNIQUE KEY `UsrIndex` (`IDX`);
